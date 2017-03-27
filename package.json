@@ -1,0 +1,28 @@
+{
+  "name": "learningnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonglixue/learningNode.git"
+  },
+  "keywords": [
+    "node",
+    "server"
+  ],
+  "author": "Lixue Gong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonglixue/learningNode/issues"
+  },
+  "homepage": "https://github.com/gonglixue/learningNode#readme"
+}
