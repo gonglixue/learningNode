@@ -1,10 +1,15 @@
 /**
  * Created by Administrator on 2017/3/21.
  */
+var exec = require("child_process").exec;
 function start()
 {
-    console.log("request handler: start");
-    return "hello start";
+    console.log("request handler: star");
+    var content = "empty";
+    exec("ls -lah", function(error, stdout, stderr){
+        content = stdout;
+    })
+    return content;
 }
 
 function upload()
