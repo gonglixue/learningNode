@@ -3,6 +3,7 @@
  */
 var exec = require("child_process").exec;
 var querystring = require("querystring");
+var fs = require("fs");
 function start(response, postData)
 {
     console.log("request handler: start");
@@ -23,18 +24,6 @@ function start(response, postData)
     response.writeHead(200, {"Content-Type":"text/html"});
     response.write(body);
     response.end();
-    // exec("find /",{timeout:10000, maxBuffer:2000*1024}, function(error, stdout, stderr){
-    //     if(error)
-    //     {
-    //         response.writeHead(200, {"Content-Type":"text/plain"});
-    //         response.write(stderr);
-    //         response.end();
-    //     }
-    //
-    //     response.writeHead(200, {"Content-Type":"text/plain"});
-    //     response.write(stdout);
-    //     response.end();
-    // });
 
 }
 
@@ -46,5 +35,22 @@ function upload(response,postData)
     response.end();
 }
 
+function show(response, postData){
+    console.log("request handler 'show' was called.");
+    fs.readFile("./tmp/test.png", "binary", function(error, file){
+        if(error){
+            response.writeHead(500, {'Content-Type':'text/plain'});
+            response.write(error + "\n");
+            response.end();
+        }
+        else{
+            response.writeHead(200, {'Content-Type':"image/png"});
+            response.write(file, "binary");
+            response.end();
+        }
+    });
+}
+
 exports.start = start;
 exports.upload = upload;
+exports.show = show;
