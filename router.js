@@ -2,11 +2,11 @@
  * Created by Administrator on 2017/3/21.
  */
 
-function route(handler, pathname, response, postData)
+function route(handler, pathname, response, request)
 {
     if(typeof(handler[pathname]) === 'function')
     {
-        return handler[pathname](response, postData);
+        return handler[pathname](response, request);
     }
     else{
         console.log("no request handler found for :" + pathname);
